@@ -77,7 +77,7 @@ If I were to extend this project, I would:
 
 
 
-### Reflection
+## Reflection
 
 Working on this project, my first data analysis project, has deepened my understanding of data analysis and visualisation in Python. I learned how to approach a real-world dataset, clean and prepare the data, and use different libraries to uncover meaningful insights. Overcoming technical challenges, such as troubleshooting errors and managing my coding environment, has improved my problem-solving skills. I also gained confidence in presenting findings clearly through both code and visualisations. Overall, this experience has strengthened my analytical abilities and prepared me for more advanced data projects in the future.
 
