@@ -1,75 +1,105 @@
 # ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
-## Template Instructions
+# Health Insurance Cost Analysis
 
-Welcome,
+## Overview
+This project provides a comprehensive analysis of a health insurance dataset to uncover the primary factors influencing insurance charges. Leveraging Python and a suite of data analysis and visualisation libraries, the project investigates how variables such as BMI and smoking status impact insurance costs. The analysis is designed to offer actionable insights for both individuals and insurance providers.
 
-This is the Code Institute student template for the Data Analytics capstone project. We have preinstalled all of the tools you need to get started. It's perfectly okay to use this template as the basis for your project submissions. Click the `Use this template` button above to get started.
+## Objectives
+- Identify and evaluate the variables that most significantly affect health insurance charges through exploratory data analysis and visualisation.
+- Compare insurance charges between smokers and non-smokers to assess the impact of smoking status.
+- Examine the relationship between BMI and insurance charges by grouping BMI values and visualising average costs.
+- Utilise both interactive (Plotly) and static (Matplotlib) visualisations to effectively communicate findings.
 
-You can safely delete the Template Instructions section of this README.md file and modify the remaining paragraphs for your own project. Please do read the Template Instructions at least once, though! It contains some important information about the IDE and the extensions we use.
+## Data
+- **Source:** `data/cleaned_insurance.csv`
+- **Key Features:**  
+  - `age`: Age of the policyholder  
+  - `sex`: Gender of the policyholder  
+  - `bmi`: Body Mass Index  
+  - `children`: Number of dependents  
+  - `smoker`: Smoking status  
+  - `region`: Residential region  
+  - `charges`: Annual insurance charges
 
-## How to use this repo
+## Getting Started
 
-1. Use this template to create your GitHub project repo. Click the Use this template button, then click Create a new repository.
+### Prerequisites
+Ensure you have Python 3.x installed. The following packages are required:
+- pandas
+- numpy
+- matplotlib
+- seaborn
+- plotly
+- kaleido
+You can install them using:
+GitHub Copilot
+pip install pandas numpy matplotlib seaborn plotly kaleido
 
-1. Copy the URL of your repository to your clipboard.
+### Running the Analysis
+1. **Clone the repository** to your local machine.
+2. **Navigate to the project directory** and open the Jupyter notebook located in the `jupyter_notebooks` folder.
+3. **Run the notebook cells** sequentially to perform the analysis and generate the visualisations.
 
-1. In VS Code, select File - Open Folder.
+## Results and Insights
+- **Smoking status** is the most significant factor, with smokers incurring substantially higher insurance charges than non-smokers.
+- **BMI** is also a key variable; higher BMI values are associated with increased insurance costs, particularly for smokers.
+- The combination of being a smoker and having a high BMI results in the highest insurance charges observed in the dataset.
+- All findings are supported by clear visualisations and detailed insights within the notebook.
 
-1. Select your vscode-projects folder, then click the Select Folder button on Windows, or Open button on Mac.
+## Challenges and Solutions
 
-1. From the top menu in VS Code, select Terminal > New Terminal to open the terminal.
+**Challenge 1: Handling Missing or Duplicate Data**  
+*Solution:*  
+Careful data cleaning steps were implemented to check for and remove any missing values or duplicate records, ensuring the integrity of the analysis.
 
-1. In the terminal, type git clone followed by the URL of your GitHub repository. Then hit Enter. This command will download all the files in your GitHub repository into your vscode-projects folder.
+**Challenge 2: Displaying Interactive Visualisations on GitHub**  
+*Solution:*  
+GitHub does not support interactive Plotly plots in notebook previews. To address this, static images of the interactive plots were generated and embedded in the notebook, allowing the visual insights to be shared effectively.
 
-1. In VS Code, select File > Open Folder again.
+**Challenge 3: Package and Environment Issues**  
+*Solution:*  
+Some required packages (such as `kaleido` for saving Plotly images) were not initially installed, leading to errors. These were resolved by installing the necessary packages and restarting the Jupyter kernel to ensure all dependencies were correctly loaded.
 
-1. This time, navigate to and select the folder for the project you just downloaded. Then, click Select Folder.
+**Challenge 4: File Path and Directory Management**  
+*Solution:*  
+Issues with file paths and working directories were resolved by programmatically setting the working directory at the start of the notebook, ensuring data files could be accessed regardless of the notebook’s location.
 
-1. A virtual environment is necessary when working with Python projects to ensure each project's dependencies are kept separate from each other. You need to create your virtual environment, also called a venv, and then ensure that it is activated any time you return to your workspace.
-Click the gear icon in the lower left-hand corner of the screen to open the Manage menu and select Command Palette to open the VS Code command palette.
 
-1. In the command palette, type: create environment and select Python: Create Environment…
+## Conclusion and Next Steps
 
-1. Choose Venv from the dropdown list.
+This project provided clear insights into the main factors influencing health insurance charges. Smoking status emerged as the strongest predictor, with smokers consistently facing much higher charges than non-smokers. BMI also plays a significant role—higher BMI leads to higher average charges, and the effect is even greater for smokers with high BMI. Both factors together result in the highest insurance costs in the dataset.
 
-1. Choose the Python version you installed earlier. Currently, we recommend Python 3.12.8
+If I were to extend this project, I would:
+- Investigate additional variables, such as medical history or lifestyle factors, to gain deeper insights.
+- Analyse how insurance charges change over time, if longitudinal data becomes available.
+- Compare findings with other datasets or regions to see if similar patterns exist elsewhere.
 
-1. DO NOT click the box next to requirements.txt, as you need to do more steps before you can install your dependencies. Click OK.
 
-1. You will see a .venv folder appear in the file explorer pane to show that the virtual environment has been created.
 
-1. Important: Please add the .venv to your .gitignore file
+**Reflection**
 
-1. Return to the terminal by clicking on the TERMINAL tab or click on the Terminal menu and choose New Terminal if no terminal is currently open.
+Working on this project, my first data analysis project, has deepened my understanding of data analysis and visualisation in Python. I learned how to approach a real-world dataset, clean and prepare the data, and use different libraries to uncover meaningful insights. Overcoming technical challenges, such as troubleshooting errors and managing my coding environment, has improved my problem-solving skills. I also gained confidence in presenting findings clearly through both code and visualisations. Overall, this experience has strengthened my analytical abilities and prepared me for more advanced data projects in the future.
 
-1. In the terminal, use the command below to install your dependencies. This may take several minutes.
- `pip3 install -r requirements.txt`
 
-1. Open the jupyter_notebooks directory, and click on the notebook you want to open.
+## Credits & References
 
-1. Click the kernel button and choose Python Environments.
+- **ChatGPT (OpenAI):**  
+  I relied on ChatGPT for guidance throughout the project, especially when I faced challenges. For example, it helped me:
+  - Structure my markdown cells and clearly write out hypotheses and objectives.
+  - Troubleshoot errors, such as resolving Plotly issues caused by missing `nbformat`, fixing unexplained SyntaxErrors by restarting VS Code, and sorting out virtual environment activation problems in the terminal.
+  - Format my visualisations, like removing error bars from seaborn plots and customising legends in Plotly scatter plots.
+  - Understand technical concepts, including how `groupby().mean().reset_index()` works, the difference between `sns.barplot()` and `plt.bar()`, and the role of legends and trendlines in data visualisation.
 
-Note that the kernel says Python 3.12.2 as it inherits from the workspace, so it will be Python-3.12.2 as installed by our template. To confirm this, you can use `! python --version` in a notebook code cell.
+- **GitHub Copilot:**  
+  GitHub Copilot in VS Code was helpful for autocompleting repetitive code and suggesting clean, efficient syntax, particularly during data visualisation and data transformation steps.
 
-## Cloud IDE Reminders
+- **External Dataset Sources:**  
+  I reviewed exploratory analysis notebooks from other Kaggle users to understand common approaches. I adapted some initial code for loading and inspecting the data (such as using `.info()`, `.describe()`, and `.isnull().sum()`) from these examples.
 
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
-* Set the runtime.txt Python version to a [Heroku-22](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
-* The project was deployed to Heroku using the following steps.
-
-1. Log in to Heroku and create an App
-2. At the Deploy tab, select GitHub as the deployment method.
-3. Select your repository name and click Search. Once it is found, click Connect.
-4. Select the branch you want to deploy, then click Deploy Branch.
-5. The deployment process should happen smoothly if all deployment files are fully functional. Click now the button Open App on the top of the page to access your App.
-6. If the slug size is too large then add large files not required for the app to the .slugignore file.
+## Acknowledgements
+***Thanks to:***
+- Code Institute for guidance on project structure
+- Kaggle for providing access to the dataset
+- ChatGPT and GitHub Copilot for coding assistance
+- Fellow Code Institute students for their support and encouragement
